@@ -1,7 +1,6 @@
 languageCode = "ja-jp"
 baseURL = "http://retact.net"
 title = "retact"
-themesDir = "themes"
 theme = "m10c"
 paginate = 8
 canonifyurls = true
