@@ -6,7 +6,7 @@ themesDir = "themes"
 theme = "m10c"
 paginate = 8
 canonifyurls = true
-
+publishDir = "docs"
 
 [menu]
   [[menu.main]]
