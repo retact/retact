@@ -1,5 +1,6 @@
-languageCode = "ja-jp"
-baseURL = "http://retact.net"
+#baseURL = "retact.net"
+baseURL = "https://retact.net/"
+languageCode = "ja"
 title = "retact"
 theme = "m10c"
 paginate = 8
