@@ -1,5 +1,5 @@
 languageCode = "ja-jp"
-baseurl = "http://retact.net"
+baseURL = "http://retact.net"
 title = "retact"
 themesDir = "themes"
 theme = "m10c"
