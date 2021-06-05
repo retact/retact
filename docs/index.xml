@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>retact</title>
+    <link>http://example.org/</link>
+    <description>Recent content on retact</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About me</title>
+      <link>http://example.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/about/</guid>
+      <description>I will contribute to the development of sEMG-based entertainment and human-assisted robotics by improving and simplifying the non-invasive acquisition and analysis of EMG data.
+Plofile retact - Takuto Soeda
+Age - 20
+Labo - Assistive Robotics Laboratory
+Words - sEMG, Prothetic-hand, EMG-ArmBand
+Like - EMG,vim,VR
+Result Activities Cansat,Rocket,EMG-ArmBand
+ 2021- Assistive Robotics Laboratory 2021- K3(club activities) 2019-2020 Programming Instructor at LITALICO Inc. 2019-2020 CORE(Charange of Rockets Engineering) Avionics group  Ptarmigan - Gemini QUEST Amatsukaze - Stream Conductor (Piglet _- CRYSTAL PALACE)   2019- Department of Mechanical Engineering, Hosei University 2018 Participated in the CANSAT European Competition 2018  Yatagarasu   2018 Awarded Kawasaki City Cultural Prize 2018 Received Hosei University&amp;rsquo;s Future of Society Award 2017 Winner of the CANSAT Koshien National Competition  GEMINI    </description>
+    </item>
+    
+  </channel>
+</rss>
