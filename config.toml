@@ -1,5 +1,5 @@
 #baseURL = "retact.net"
-baseURL = "https://retact.net/"
+baseURL = "https://retact.github.io/retact/"
 languageCode = "ja"
 title = "retact"
 theme = "m10c"
