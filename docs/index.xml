@@ -2,16 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>retact</title>
-    <link>http://example.org/</link>
+    <link>https://example.com/</link>
     <description>Recent content on retact</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-jp</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-jp</language>
+    <lastBuildDate>Sat, 05 Jun 2021 12:06:01 +0900</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arm Band</title>
+      <link>https://example.com/posts/arm-band/</link>
+      <pubDate>Sat, 05 Jun 2021 12:06:01 +0900</pubDate>
+      
+      <guid>https://example.com/posts/arm-band/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>About me</title>
-      <link>http://example.org/about/</link>
+      <link>https://example.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/about/</guid>
+      <guid>https://example.com/about/</guid>
       <description>I will contribute to the development of sEMG-based entertainment and human-assisted robotics by improving and simplifying the non-invasive acquisition and analysis of EMG data.
 Plofile retact - Takuto Soeda
 Age - 20

@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
+baseURL="https://example.com"
 languageCode = "ja-jp"
-baseurl = "http://retact.github.io/retact"
+baseurl = "http://retact.net"
 title = "retact"
 themesDir = "themes"
 theme = "m10c"
