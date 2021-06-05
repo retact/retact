@@ -1,3 +1,45 @@
 baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+languageCode = "ja-jp"
+baseurl = "http://retact.github.io/retact"
+title = "retact"
+themesDir = "themes"
+theme = "m10c"
+paginate = 8
+canonifyurls = true
+
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1 
+#  [[menu.main]]
+#    identifier = "tags"
+#    name = "Tags"
+#    url = "/tags/"
+#    weight = 2
+  [[menu.main]]
+    identifier = "About"
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+[params]
+  author = "retact"
+  description = "Mechanical Engineering B3."
+  menu_item_separator = " - "
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/retact"
+  [[params.social]]
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/_retact"
+  [params.style]
+    darkestColor = "#892EEE"
+    darkColor = "#212121"
+    lightColor = "#afbac4"
+    lightestColor = "#f5f5f5"
+    primaryColor = "#ffffff"
