@@ -23,6 +23,12 @@ publishDir = "docs"
     name = "About"
     url = "/about/"
     weight = 3
+  
+ [[menu.main]]
+    identifier = "Paper-Survey"
+    name = "Paper-Survey"
+    url = "https://ps.retact.net/"
+    weight = 4
 
 [params]
   author = "retact"
