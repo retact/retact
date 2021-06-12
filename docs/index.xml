@@ -5,17 +5,7 @@
     <link>https://retact.github.io/retact/</link>
     <description>Recent content on retact</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Sat, 05 Jun 2021 12:06:01 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Arm Band</title>
-      <link>https://retact.github.io/retact/posts/arm-band/</link>
-      <pubDate>Sat, 05 Jun 2021 12:06:01 +0900</pubDate>
-      
-      <guid>https://retact.github.io/retact/posts/arm-band/</guid>
-      <description></description>
-    </item>
-    
+    <language>ja</language><atom:link href="https://retact.github.io/retact/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About me</title>
       <link>https://retact.github.io/retact/about/</link>
@@ -23,7 +13,7 @@
       
       <guid>https://retact.github.io/retact/about/</guid>
       <description>I will contribute to the development of sEMG-based entertainment and human-assisted robotics by improving and simplifying the non-invasive acquisition and analysis of EMG data.
-Plofile retact - Takuto Soeda
+Profile retact - Takuto Soeda
 Age - 20
 Labo - Assistive Robotics Laboratory
 Words - sEMG, Prothetic-hand, EMG-ArmBand

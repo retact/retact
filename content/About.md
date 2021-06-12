@@ -4,7 +4,7 @@ title = "About me"
  
  I will contribute to the development of sEMG-based entertainment and human-assisted robotics by improving and simplifying the non-invasive acquisition and analysis of EMG data.  
  
-#### Plofile
+#### Profile
  retact - Takuto Soeda  
  Age - 20  
  Labo - [Assistive Robotics Laboratory](http://assistrobotics.ws.hosei.ac.jp/)  
