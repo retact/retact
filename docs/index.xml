@@ -5,7 +5,17 @@
     <link>https://retact.github.io/retact/</link>
     <description>Recent content on retact</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language><atom:link href="https://retact.github.io/retact/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Sat, 05 Jun 2021 12:06:01 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arm Band</title>
+      <link>https://retact.github.io/retact/posts/arm-band/</link>
+      <pubDate>Sat, 05 Jun 2021 12:06:01 +0900</pubDate>
+      
+      <guid>https://retact.github.io/retact/posts/arm-band/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>About me</title>
       <link>https://retact.github.io/retact/about/</link>
