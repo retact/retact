@@ -6,14 +6,24 @@
     <description>Recent content in Posts on retact</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Jun 2021 12:06:01 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 01:28:40 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Arm Band</title>
-      <link>https://retact.github.io/retact/posts/arm-band/</link>
-      <pubDate>Sat, 05 Jun 2021 12:06:01 +0900</pubDate>
+      <title>相互相関関数を用いてEMGのズレを推定する</title>
+      <link>https://retact.github.io/retact/posts/correct-emg-misalignment/</link>
+      <pubDate>Sat, 03 Jul 2021 01:28:40 +0900</pubDate>
       
-      <guid>https://retact.github.io/retact/posts/arm-band/</guid>
-      <description></description>
+      <guid>https://retact.github.io/retact/posts/correct-emg-misalignment/</guid>
+      <description>2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータのズレが生じてしまいます.
+EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号のズレを推定してみたいと思います.
+また今回使用したコードはこちらにまとめてあります． 相互相関関数(Cross-correlation function) 相互相関関数は2つの信号の類似性を見るための関数であり，xとyの平均がそれぞれ0で2つの信号が連続信号であるとき以下のような式で表されます.
+同時に観測された二つの不規則信号に対して,x(t)と時間τだけずらしたy(t+τ)の相関を示します.
+このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され,整合フィルタ(Match Filter)とも呼ばれています.
+Raw-EMGの相関関数で推定する. python で相互相関関数を利用する場合はnumpyのcorrelate関数やこれに基づいたmatplotlib.pyplotのxcorr関数を利用する方法などがありますが，今回はnumpyのcorrelate関数を利用します．
+numpy.correlate
+matplotlib.pyplot.xcorr
+import numpy as np np.correlate(a, v, mode=&amp;#39;valid&amp;#39;) また実際データに相互相関関数を利用する際にはデータを正規化する必要があります．今回は標準化の処理を行います．
+dev1_emg1=(dev1_emg1-np.mean(dev1_emg1))/np.std(dev1_emg1) dev2_emg1=(dev2_emg1-np.mean(dev2_emg1))/np.std(dev2_emg1) そのようにして実際に実装すると以下のようなコードで以下のような結果を得ることができます.
+import numpy as np import myplotlib.pyplot as plt #　Standardization dev1_emg1=(dev1_emg1-np.mean(dev1_emg1))/np.std(dev1_emg1) dev2_emg1=(dev2_emg1-np.mean(dev2_emg1))/np.std(dev2_emg1) # Cross-correlation function corr=np.correlate(dev1_emg1, dev2_emg1,&amp;#34;full&amp;#34;) estimated_delay = corr.argmax() - (len(dev2_emg1) - 1) print(&amp;#34;estimated delay is &amp;#34; + str(estimated_delay)) # Plotting plt.figure(figsize=(15,8)) plt.subplot(2, 1, 1) plt.plot(np.arange(len(dev1_emg1)), dev1_emg1) plt.plot(np.arange(len(dev2_emg1)) + estimated_delay, dev2_emg1) plt.xlabel(&amp;#39;Number of data&amp;#39;,fontsize=15) plt.</description>
     </item>
     
   </channel>
