@@ -6,6 +6,7 @@ theme = "m10c"
 paginate = 8
 canonifyurls = true
 publishDir = "docs"
+pygmentsCodeFences = true
 
 [menu]
   [[menu.main]]
