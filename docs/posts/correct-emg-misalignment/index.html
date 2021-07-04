@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
   <head>
-    <title>相互相関関数を用いてEMGのズレを推定する // retact</title>
+    <title>相互相関関数を用いてEMGの遅延を推定する // retact</title>
     <link rel="shortcut icon" href="https://retact.github.io/retact/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.83.1" />
@@ -12,12 +12,12 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="相互相関関数を用いてEMGのズレを推定する"/>
-<meta name="twitter:description" content="2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータのズレが生じてしまいます.
-EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号のズレを推定してみたいと思います.
+<meta name="twitter:title" content="相互相関関数を用いてEMGの遅延を推定する"/>
+<meta name="twitter:description" content="2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータの遅延が生じてしまいます.
+EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号の遅延を推定してみたいと思います.
 また今回使用したコードはこちらにまとめてあります． 相互相関関数(Cross-correlation function) 相互相関関数は2つの信号の類似性を見るための関数であり，xとyの平均がそれぞれ0で2つの信号が連続信号であるとき以下のような式で表されます.
-同時に観測された二つの不規則信号に対して,x(t)と時間τだけずらしたy(t&#43;τ)の相関を示します.
-このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され,整合フィルタ(Match Filter)とも呼ばれています.
+同時に観測された二つの不規則信号に対して，x(t)と時間τだけずらしたy(t&#43;τ)の相関を示します.
+このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され，整合フィルタ(Match Filter)とも呼ばれています.
 Raw-EMGの相関関数で推定する. python で相互相関関数を利用する場合はnumpyのcorrelate関数やこれに基づいたmatplotlib.pyplotのxcorr関数を利用する方法などがありますが，今回はnumpyのcorrelate関数を利用します．
 numpy.correlate
 matplotlib.pyplot.xcorr
@@ -25,12 +25,12 @@ import numpy as np np.correlate(a, v, mode=&#39;valid&#39;) また実際デー�
 dev1_emg1=(dev1_emg1-np.mean(dev1_emg1))/np.std(dev1_emg1) dev2_emg1=(dev2_emg1-np.mean(dev2_emg1))/np.std(dev2_emg1) そのようにして実際に実装すると以下のようなコードで以下のような結果を得ることができます.
 import numpy as np import myplotlib.pyplot as plt #　Standardization dev1_emg1=(dev1_emg1-np.mean(dev1_emg1))/np.std(dev1_emg1) dev2_emg1=(dev2_emg1-np.mean(dev2_emg1))/np.std(dev2_emg1) # Cross-correlation function corr=np.correlate(dev1_emg1, dev2_emg1,&#34;full&#34;) estimated_delay = corr.argmax() - (len(dev2_emg1) - 1) print(&#34;estimated delay is &#34; &#43; str(estimated_delay)) # Plotting plt.figure(figsize=(15,8)) plt.subplot(2, 1, 1) plt.plot(np.arange(len(dev1_emg1)), dev1_emg1) plt.plot(np.arange(len(dev2_emg1)) &#43; estimated_delay, dev2_emg1) plt.xlabel(&#39;Number of data&#39;,fontsize=15) plt."/>
 
-    <meta property="og:title" content="相互相関関数を用いてEMGのズレを推定する" />
-<meta property="og:description" content="2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータのズレが生じてしまいます.
-EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号のズレを推定してみたいと思います.
+    <meta property="og:title" content="相互相関関数を用いてEMGの遅延を推定する" />
+<meta property="og:description" content="2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータの遅延が生じてしまいます.
+EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号の遅延を推定してみたいと思います.
 また今回使用したコードはこちらにまとめてあります． 相互相関関数(Cross-correlation function) 相互相関関数は2つの信号の類似性を見るための関数であり，xとyの平均がそれぞれ0で2つの信号が連続信号であるとき以下のような式で表されます.
-同時に観測された二つの不規則信号に対して,x(t)と時間τだけずらしたy(t&#43;τ)の相関を示します.
-このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され,整合フィルタ(Match Filter)とも呼ばれています.
+同時に観測された二つの不規則信号に対して，x(t)と時間τだけずらしたy(t&#43;τ)の相関を示します.
+このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され，整合フィルタ(Match Filter)とも呼ばれています.
 Raw-EMGの相関関数で推定する. python で相互相関関数を利用する場合はnumpyのcorrelate関数やこれに基づいたmatplotlib.pyplotのxcorr関数を利用する方法などがありますが，今回はnumpyのcorrelate関数を利用します．
 numpy.correlate
 matplotlib.pyplot.xcorr
@@ -81,7 +81,7 @@ import numpy as np import myplotlib.pyplot as plt #　Standardization dev1_emg1=
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">相互相関関数を用いてEMGのズレを推定する</h1>
+      <h1 class ="post-title">相互相関関数を用いてEMGの遅延を推定する</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -100,15 +100,15 @@ import numpy as np import myplotlib.pyplot as plt #　Standardization dev1_emg1=
       </div>
     </header>
     <div class="post-content">
-      <p>2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータのズレが生じてしまいます.<br>
-EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号のズレを推定してみたいと思います.<br>
+      <p>2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータの遅延が生じてしまいます.<br>
+EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号の遅延を推定してみたいと思います.<br>
 また今回使用したコードは<a href="https://github.com/retact/sEMG-Cross-correlation">こちら</a>にまとめてあります．
 <img src="https://retact.github.io/retact/img/correct-EMG-misalignment/Myo-EMG1.png" alt="EMG1"></p>
 <h2 id="相互相関関数cross-correlation-function">相互相関関数(Cross-correlation function)</h2>
 <p>相互相関関数は2つの信号の類似性を見るための関数であり，xとyの平均がそれぞれ0で2つの信号が連続信号であるとき以下のような式で表されます.</p>
 <p><img src="https://retact.github.io/retact/img/correct-EMG-misalignment/C-corr-f.png" alt="C-corr-f"></p>
-<p>同時に観測された二つの不規則信号に対して,x(t)と時間τだけずらしたy(t+τ)の相関を示します.<br>
-このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され,整合フィルタ(Match Filter)とも呼ばれています.</p>
+<p>同時に観測された二つの不規則信号に対して，x(t)と時間τだけずらしたy(t+τ)の相関を示します.<br>
+このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され，整合フィルタ(Match Filter)とも呼ばれています.</p>
 <h2 id="raw-emgの相関関数で推定する">Raw-EMGの相関関数で推定する.</h2>
 <p>python で相互相関関数を利用する場合はnumpyのcorrelate関数やこれに基づいたmatplotlib.pyplotのxcorr関数を利用する方法などがありますが，今回はnumpyのcorrelate関数を利用します．<br>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.correlate.html">numpy.correlate</a><br>
@@ -149,9 +149,9 @@ plt<span style="color:#f92672">.</span>xlim([<span style="color:#ae81ff">0</span
 plt<span style="color:#f92672">.</span>show()
 </code></pre></div><p><img src="https://retact.github.io/retact/img/correct-EMG-misalignment/Myo-EMG2.png" alt="MyoEMG2"></p>
 <p>結果からズレが推定できておらず，2つの信号の差が少しは小さくなったものの補正できていないことがわかります．こうなってしまった原因として，Myoから取得しているデータがbyteデータであることが挙げられます．byteデータだと扱える値が-128-127であり，Myoの内部でそれより大きい値や小さい値はそれぞれ-128と127で置換されてしまうため，信号同士の相関関係を強く示す場所がいくつか出てしまいます．<br>
-この結果を踏まえて取得しているデータを元にズレを推定するために今回は取得した信号をある一定の範囲で積分した値を算出し，その信号同士の相関関係でズレを推定してみたいと思います．</p>
+この結果を踏まえて取得しているデータを元に今回は取得した信号をある一定の範囲で積分した値を算出し，その信号同士の相関関係で遅延量を推定してみたいと思います．</p>
 <h2 id="iemgの相互相関関数で推定する">IEMGの相互相関関数で推定する．</h2>
-<p>IEMGとはIntegrated ElectroMyoGraphyの略でEMGの時間的特徴量としてジェスチャー分類する際に用いられます．実際にはEMGを一定区間で積分した値で次のような式で表すことができます．<br>
+<p>IEMGとはIntegrated ElectroMyoGraphyの略でEMGの時間的特徴量としてよくEMGを用いたジェスチャー分類する際に用いられます．実際にはEMGを一定区間で積分した値で次のような式で表すことができます．<br>
 <img src="https://retact.github.io/retact/img/correct-EMG-misalignment/IEMG.png" alt="IEMG"><br>
 これをpythonで実装すると以下のような関数で任意の信号に対して実装することができます．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np 
@@ -194,7 +194,7 @@ plt<span style="color:#f92672">.</span>show()
 </code></pre></div><p><img src="https://retact.github.io/retact/img/correct-EMG-misalignment/Myo-EMG4.png" alt="IEMG graph 1"><br>
 <img src="https://retact.github.io/retact/img/correct-EMG-misalignment/Myo-EMG3.png" alt="IEMG graph"></p>
 <p>見た目も先ほどのrawデータより相関が出そうな気がします．<br>
-この変換したIEMGに先ほどと同様の相互相関関数を用いてズレを推定していきます．</p>
+この変換したIEMGに先ほどと同様の相互相関関数を用いて遅延量を推定していきます．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#　Standardization</span>
 IEMG1<span style="color:#f92672">=</span>(IEMG1<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>mean(IEMG1))<span style="color:#f92672">/</span>np<span style="color:#f92672">.</span>std(IEMG1)
 IEMG2<span style="color:#f92672">=</span>(IEMG2<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>mean(IEMG2))<span style="color:#f92672">/</span>np<span style="color:#f92672">.</span>std(IEMG2)
@@ -222,7 +222,7 @@ plt<span style="color:#f92672">.</span>xlim([<span style="color:#ae81ff">0</span
 plt<span style="color:#f92672">.</span>show()
 </code></pre></div><p><img src="https://retact.github.io/retact/img/correct-EMG-misalignment/Myo-EMG5.png" alt="IEMG corr"><br>
 図でもわかる通りいい感じに相関関係が表示できたかと思います．<br>
-ここで算出したDelayをRawデータのデータ点数に変換してraw-EMGデータに反映して表示させてみます．</p>
+ここで算出したDelayをデータ点数に変換してraw-EMGデータに反映して表示させてみます．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">EMGdelay<span style="color:#f92672">=</span>estimated_delay<span style="color:#f92672">*</span>dataf
 plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">3</span>))
 <span style="color:#75715e"># EMG1</span>
@@ -235,12 +235,12 @@ plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;My
 plt<span style="color:#f92672">.</span>xlim([<span style="color:#ae81ff">0</span>, len(dev1_emg1)])
 plt<span style="color:#f92672">.</span>show()
 </code></pre></div><p><img src="https://retact.github.io/retact/img/correct-EMG-misalignment/EMG6.png" alt="rawEMG"><br>
-結果のとおり，いい感じにデータのズレを修正できたかと思います．<br>
+結果のとおり，いい感じにデータの遅延を修正できたかと思います．<br>
 しかし今回実際に相関関係を算出した際に利用したIEMGはraw-EMGを10点区間で積分した値なので，データのズレも+-10点ほど存在することになります．<br>
-そのためデータ点数のズレをできるだけ小さくしたい場合，相互相関関数においてはMyoで取得したEMGデバイスのデータのズレを推定し，修正することは難しいと思います．<br>
+そのためデータ点数のズレをできるだけ正確に直したい場合，相互相関関数においてはMyoで取得したEMGデバイスのデータの遅延を推定し，修正することは難しいと思います．<br>
 使用するデータの波形が綺麗でサンプリングレートが高いものであればもう少しうまくいっていたかもしれません．<br>
 また今回取得したデータはEMGの計測部分が異なるため，筋肉の伝達の誤差と筋肉から発生する信号の大きさによって完璧な相互相関があるわけではないことから，少なからずデータに対しての誤差は生じることが考えられます．<br>
-このようなことからの2つのMyoデバイスを使用して取得した際に発生するズレを補完する方法として相互相関関数は不向きであることがわかりました．<br>
+このようなことからの2つのMyoデバイスを使用して取得した際に発生する遅延を補完する方法として相互相関関数は不向きであることがわかりました．<br>
 取得するデータや他のシステムの遅延量を求める際には利用できるので，使用法を考えて利用していきたいと思います.</p>
 
     </div>

@@ -8,16 +8,16 @@
     <language>ja</language>
     <lastBuildDate>Sat, 03 Jul 2021 01:28:40 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>相互相関関数を用いてEMGのズレを推定する</title>
+      <title>相互相関関数を用いてEMGの遅延を推定する</title>
       <link>https://retact.github.io/retact/posts/correct-emg-misalignment/</link>
       <pubDate>Sat, 03 Jul 2021 01:28:40 +0900</pubDate>
       
       <guid>https://retact.github.io/retact/posts/correct-emg-misalignment/</guid>
-      <description>2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータのズレが生じてしまいます.
-EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号のズレを推定してみたいと思います.
+      <description>2つのMyoデバイスを使ってそれぞれEMGを取得した際にこのようにデータの遅延が生じてしまいます.
+EMGと同時に取得されるタイムスタンプなどで補正すれば問題はないのですが，同じ腕の信号を取得しているため今回は相互相関関数を使ってこの2つの信号の遅延を推定してみたいと思います.
 また今回使用したコードはこちらにまとめてあります． 相互相関関数(Cross-correlation function) 相互相関関数は2つの信号の類似性を見るための関数であり，xとyの平均がそれぞれ0で2つの信号が連続信号であるとき以下のような式で表されます.
-同時に観測された二つの不規則信号に対して,x(t)と時間τだけずらしたy(t+τ)の相関を示します.
-このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され,整合フィルタ(Match Filter)とも呼ばれています.
+同時に観測された二つの不規則信号に対して，x(t)と時間τだけずらしたy(t+τ)の相関を示します.
+このような性質からレーダーシステムなどで送信信号と受信信号を比較して目標物の位置を特定する際に利用され，整合フィルタ(Match Filter)とも呼ばれています.
 Raw-EMGの相関関数で推定する. python で相互相関関数を利用する場合はnumpyのcorrelate関数やこれに基づいたmatplotlib.pyplotのxcorr関数を利用する方法などがありますが，今回はnumpyのcorrelate関数を利用します．
 numpy.correlate
 matplotlib.pyplot.xcorr
