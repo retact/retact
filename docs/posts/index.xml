@@ -6,7 +6,38 @@
     <description>Recent content in Posts on retact</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 03 Jul 2021 01:28:40 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Sep 2021 01:28:40 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TwitterのタイムラインをDiscordに表示させる</title>
+      <link>https://retact.github.io/retact/posts/twitter-discord/</link>
+      <pubDate>Tue, 07 Sep 2021 01:28:40 +0900</pubDate>
+      
+      <guid>https://retact.github.io/retact/posts/twitter-discord/</guid>
+      <description>はじめに みなさんはDiscord使っていますでしょうか．
+僕の使っているサーバでは分報というものがあり,みんなのやっていることを共有できてとても楽しかったのですが最近身の回りの人は沙汰がなく，Twitterの方が捗っている方が多い傾向にあります．
+それだと少し寂しい気がしたので,みんながTweetしたらDiscordに表示させるようにしたらいいのではという思いから,雑ではありますが実装してみました．
+※今回使うTwitterStreamAPIの鍵垢のツイートの抽出はよくわからなかったので本文は公開垢のみの抽出とWebhooksを用いた出力について書かれています．
+実装したコードはこちらに載せておきます．
+Twitterのツイートを読み込むために まずタイムラインを抽出するためにご自身のtwitterアカウントでAPIキーとアクセストークンを取得する必要があります．
+こちらを参考にTwitterのAPI利用申請を行えば(少しUIは異なるものの)問題なく行えるかと思います．
+ここで入手した
+○ Consumer API key
+○ Consumer API secret key
+○ Access token
+○ Access token secret
+の4つは後ほど使用します．
+Twitter APIを使用したOAuth
+Twitter Streaming API 今回はTwitter Streaming APIを使用するためにTweepyライブラリを使用させていただきました．
+Tweetをとりあえず出力する． config.pyに先ほど取得した
+○ Consumer API key
+○ Consumer API secret key
+○ Access token
+○ Access token secret
+を記入してtwi-cord.pyを実行するとツイートが実行画面に表示されるかとおもいます．
+※ デフォルトのアクセスレベルでは、最大400のトラックキーワード、5000のフォローユーザーID、25のロケーションボックスが許可される
+CONFIG = { &amp;#34;CONSUMER_KEY&amp;#34;: &amp;#34;Consumer API keyを記入してください&amp;#34;, &amp;#34;CONSUMER_SECRET&amp;#34;: &amp;#34;Consumer API secret keyを記入してください&amp;#34;, &amp;#34;ACCESS_TOKEN&amp;#34;: &amp;#34;Access tokenを記入してください&amp;#34;, &amp;#34;ACCESS_SECRET&amp;#34;: &amp;#34;Access token secretを記入してください&amp;#34;, } import tweepy from config import CONFIG auth = tweepy.</description>
+    </item>
+    
     <item>
       <title>相互相関関数を用いてEMGの遅延を推定する</title>
       <link>https://retact.github.io/retact/posts/correct-emg-misalignment/</link>

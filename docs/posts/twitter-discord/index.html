@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>TwitterのタイムラインをDiscordに表示させる // retact</title>
+    <link rel="shortcut icon" href="https://retact.github.io/retact/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="retact" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://retact.github.io/retact/css/main.min.9902bd4f092e5478c599d060a69fa262971e83c21f9e10cca6f4d71d1856800e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TwitterのタイムラインをDiscordに表示させる"/>
+<meta name="twitter:description" content="はじめに みなさんはDiscord使っていますでしょうか．
+僕の使っているサーバでは分報というものがあり,みんなのやっていることを共有できてとても楽しかったのですが最近身の回りの人は沙汰がなく，Twitterの方が捗っている方が多い傾向にあります．
+それだと少し寂しい気がしたので,みんながTweetしたらDiscordに表示させるようにしたらいいのではという思いから,雑ではありますが実装してみました．
+※今回使うTwitterStreamAPIの鍵垢のツイートの抽出はよくわからなかったので本文は公開垢のみの抽出とWebhooksを用いた出力について書かれています．
+実装したコードはこちらに載せておきます．
+Twitterのツイートを読み込むために まずタイムラインを抽出するためにご自身のtwitterアカウントでAPIキーとアクセストークンを取得する必要があります．
+こちらを参考にTwitterのAPI利用申請を行えば(少しUIは異なるものの)問題なく行えるかと思います．
+ここで入手した
+○ Consumer API key
+○ Consumer API secret key
+○ Access token
+○ Access token secret
+の4つは後ほど使用します．
+Twitter APIを使用したOAuth
+Twitter Streaming API 今回はTwitter Streaming APIを使用するためにTweepyライブラリを使用させていただきました．
+Tweetをとりあえず出力する． config.pyに先ほど取得した
+○ Consumer API key
+○ Consumer API secret key
+○ Access token
+○ Access token secret
+を記入してtwi-cord.pyを実行するとツイートが実行画面に表示されるかとおもいます．
+※ デフォルトのアクセスレベルでは、最大400のトラックキーワード、5000のフォローユーザーID、25のロケーションボックスが許可される
+CONFIG = { &#34;CONSUMER_KEY&#34;: &#34;Consumer API keyを記入してください&#34;, &#34;CONSUMER_SECRET&#34;: &#34;Consumer API secret keyを記入してください&#34;, &#34;ACCESS_TOKEN&#34;: &#34;Access tokenを記入してください&#34;, &#34;ACCESS_SECRET&#34;: &#34;Access token secretを記入してください&#34;, } import tweepy from config import CONFIG auth = tweepy."/>
+
+    <meta property="og:title" content="TwitterのタイムラインをDiscordに表示させる" />
+<meta property="og:description" content="はじめに みなさんはDiscord使っていますでしょうか．
+僕の使っているサーバでは分報というものがあり,みんなのやっていることを共有できてとても楽しかったのですが最近身の回りの人は沙汰がなく，Twitterの方が捗っている方が多い傾向にあります．
+それだと少し寂しい気がしたので,みんながTweetしたらDiscordに表示させるようにしたらいいのではという思いから,雑ではありますが実装してみました．
+※今回使うTwitterStreamAPIの鍵垢のツイートの抽出はよくわからなかったので本文は公開垢のみの抽出とWebhooksを用いた出力について書かれています．
+実装したコードはこちらに載せておきます．
+Twitterのツイートを読み込むために まずタイムラインを抽出するためにご自身のtwitterアカウントでAPIキーとアクセストークンを取得する必要があります．
+こちらを参考にTwitterのAPI利用申請を行えば(少しUIは異なるものの)問題なく行えるかと思います．
+ここで入手した
+○ Consumer API key
+○ Consumer API secret key
+○ Access token
+○ Access token secret
+の4つは後ほど使用します．
+Twitter APIを使用したOAuth
+Twitter Streaming API 今回はTwitter Streaming APIを使用するためにTweepyライブラリを使用させていただきました．
+Tweetをとりあえず出力する． config.pyに先ほど取得した
+○ Consumer API key
+○ Consumer API secret key
+○ Access token
+○ Access token secret
+を記入してtwi-cord.pyを実行するとツイートが実行画面に表示されるかとおもいます．
+※ デフォルトのアクセスレベルでは、最大400のトラックキーワード、5000のフォローユーザーID、25のロケーションボックスが許可される
+CONFIG = { &#34;CONSUMER_KEY&#34;: &#34;Consumer API keyを記入してください&#34;, &#34;CONSUMER_SECRET&#34;: &#34;Consumer API secret keyを記入してください&#34;, &#34;ACCESS_TOKEN&#34;: &#34;Access tokenを記入してください&#34;, &#34;ACCESS_SECRET&#34;: &#34;Access token secretを記入してください&#34;, } import tweepy from config import CONFIG auth = tweepy." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://retact.github.io/retact/posts/twitter-discord/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-07T01:28:40&#43;09:00" />
+<meta property="article:modified_time" content="2021-09-07T01:28:40&#43;09:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://retact.github.io/retact/"><img class="app-header-avatar" src="https://retact.github.io/retact/avatar.jpg" alt="retact" /></a>
+      <h1>retact</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://ps.retact.net/">Paper-Survey</a>
+      </nav>
+      <p>Mechanical Engineering B3.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/_retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">TwitterのタイムラインをDiscordに表示させる</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 7, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="はじめに">はじめに</h1>
+<p>みなさんはDiscord使っていますでしょうか．<br>
+僕の使っているサーバでは<a href="https://craftsman-software.com/posts/56">分報</a>というものがあり,みんなのやっていることを共有できてとても楽しかったのですが最近身の回りの人は沙汰がなく，Twitterの方が捗っている方が多い傾向にあります．<br>
+それだと少し寂しい気がしたので,みんながTweetしたらDiscordに表示させるようにしたらいいのではという思いから,雑ではありますが実装してみました．</p>
+<p>※今回使うTwitterStreamAPIの鍵垢のツイートの抽出はよくわからなかったので本文は公開垢のみの抽出とWebhooksを用いた出力について書かれています．</p>
+<p>実装したコードは<a href="https://github.com/retact/twi-cord">こちら</a>に載せておきます．</p>
+<h1 id="twitterのツイートを読み込むために">Twitterのツイートを読み込むために</h1>
+<p>まずタイムラインを抽出するためにご自身のtwitterアカウントでAPIキーとアクセストークンを取得する必要があります．<br>
+<a href="https://www.itti.jp/web-direction/how-to-apply-for-twitter-api/">こちら</a>を参考にTwitterのAPI利用申請を行えば(少しUIは異なるものの)問題なく行えるかと思います．</p>
+<p>ここで入手した<br>
+○ Consumer API key<br>
+○ Consumer API secret key<br>
+○ Access token<br>
+○ Access token secret<br>
+の4つは後ほど使用します．</p>
+<p><a href="https://developer.twitter.com/ja/docs/basics/authentication/overview/oauth">Twitter APIを使用したOAuth</a></p>
+<h1 id="twitter-streaming-api">Twitter Streaming API</h1>
+<p>今回はTwitter Streaming APIを使用するために<a href="https://docs.tweepy.org/en/v3.5.0/index.html">Tweepy</a>ライブラリを使用させていただきました．</p>
+<h1 id="tweetをとりあえず出力する">Tweetをとりあえず出力する．</h1>
+<p>config.pyに先ほど取得した<br>
+○ Consumer API key<br>
+○ Consumer API secret key<br>
+○ Access token<br>
+○ Access token secret<br>
+を記入してtwi-cord.pyを実行するとツイートが実行画面に表示されるかとおもいます．</p>
+<p><a href="https://developer.twitter.com/en/docs/twitter-api/v1/tweets/filter-realtime/api-reference/post-statuses-filter">※ デフォルトのアクセスレベルでは、最大400のトラックキーワード、5000のフォローユーザーID、25のロケーションボックスが許可される</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python:config.py" data-lang="python:config.py">CONFIG <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#34;CONSUMER_KEY&#34;</span>: <span style="color:#e6db74">&#34;Consumer API keyを記入してください&#34;</span>,
+    <span style="color:#e6db74">&#34;CONSUMER_SECRET&#34;</span>: <span style="color:#e6db74">&#34;Consumer API secret keyを記入してください&#34;</span>,
+    <span style="color:#e6db74">&#34;ACCESS_TOKEN&#34;</span>: <span style="color:#e6db74">&#34;Access tokenを記入してください&#34;</span>,
+    <span style="color:#e6db74">&#34;ACCESS_SECRET&#34;</span>: <span style="color:#e6db74">&#34;Access token secretを記入してください&#34;</span>,
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python:twi-cord.py" data-lang="python:twi-cord.py"><span style="color:#f92672">import</span> tweepy
+<span style="color:#f92672">from</span> config <span style="color:#f92672">import</span> CONFIG
+
+auth <span style="color:#f92672">=</span> tweepy<span style="color:#f92672">.</span>OAuthHandler(CONFIG[<span style="color:#e6db74">&#34;CONSUMER_KEY&#34;</span>], CONFIG[<span style="color:#e6db74">&#34;CONSUMER_SECRET&#34;</span>])
+auth<span style="color:#f92672">.</span>set_access_token(CONFIG[<span style="color:#e6db74">&#34;ACCESS_TOKEN&#34;</span>], CONFIG[<span style="color:#e6db74">&#34;ACCESS_SECRET&#34;</span>])
+<span style="color:#75715e"># APIインスタンスを作成</span>
+api <span style="color:#f92672">=</span> tweepy<span style="color:#f92672">.</span>API(auth, wait_on_rate_limit<span style="color:#f92672">=</span>True, wait_on_rate_limit_notify<span style="color:#f92672">=</span>True)
+
+<span style="color:#75715e"># フォローしているユーザーのwatch_listを作成</span>
+followee_ids <span style="color:#f92672">=</span> api<span style="color:#f92672">.</span>friends_ids(screen_name<span style="color:#f92672">=</span>api<span style="color:#f92672">.</span>me()<span style="color:#f92672">.</span>screen_name)
+watch_list <span style="color:#f92672">=</span> [str(user_id) <span style="color:#66d9ef">for</span> user_id <span style="color:#f92672">in</span> followee_ids]
+watch_list<span style="color:#f92672">.</span>append(str(api<span style="color:#f92672">.</span>me()<span style="color:#f92672">.</span>id))
+
+<span style="color:#75715e"># デフォルトのアクセスレベルではfollowには5000人まで指定できるため</span>
+<span style="color:#66d9ef">assert</span>(len(watch_list) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5000</span>)
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyStreamListener</span>(tweepy<span style="color:#f92672">.</span>StreamListener):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_status</span>(self, status):
+	<span style="color:#75715e"># @ツイートは表示しない．</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;@&#34;</span> <span style="color:#f92672">in</span> status<span style="color:#f92672">.</span>text:
+            <span style="color:#66d9ef">pass</span>
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;-------------------------------------------&#39;</span>)
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;name:&#39;</span> <span style="color:#f92672">+</span> status<span style="color:#f92672">.</span>user<span style="color:#f92672">.</span>name)
+            <span style="color:#66d9ef">print</span>(status<span style="color:#f92672">.</span>text)
+
+myStreamListener <span style="color:#f92672">=</span> MyStreamListener()
+myStream <span style="color:#f92672">=</span> tweepy<span style="color:#f92672">.</span>Stream(auth<span style="color:#f92672">=</span>api<span style="color:#f92672">.</span>auth, listener<span style="color:#f92672">=</span>myStreamListener)
+myStream<span style="color:#f92672">.</span>filter(follow<span style="color:#f92672">=</span>watch_list)
+</code></pre></div><p>プライバシーの関係上大部分を隠しておりますが以下のようにフォローしてる人のTweetが表示されると思います．
+<img src="https://storage.googleapis.com/zenn-user-upload/beeaa93cc6ebb5afa8407df3.png" alt=""></p>
+<h1 id="webhookで雑にdiscordに投げる">Webhookで雑にDiscordに投げる．</h1>
+<p>とりあえずDiscordにタイムラインを表示させたいだけなので今回はWebhookを用います．</p>
+<h2 id="discordでurlを生成">DiscordでURLを生成</h2>
+<p>わからない方はこちらを参考にすれば問題なく生成できるかと思います．</p>
+<p>○ <a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">Intro to Webhooks</a><br>
+こちらで生成されたURLは後ほど使います．</p>
+<p>Webhooksの構造について知りたい方は<a href="https://discord.com/developers/docs/resources/webhook">こちら</a>が参考になるかと思います．</p>
+<h2 id="discordにtweetを表示">DiscordにTweetを表示</h2>
+<p>先ほど記述したコードにWebhookで送り込む部分を付け足します．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">CONFIG = {
+    &#34;CONSUMER_KEY&#34;: &#34;Consumer API keyを記入してください&#34;,
+    &#34;CONSUMER_SECRET&#34;: &#34;Consumer API secret keyを記入してください&#34;,
+    &#34;ACCESS_TOKEN&#34;: &#34;Access tokenを記入してください&#34;,
+    &#34;ACCESS_SECRET&#34;: &#34;Access token secretを記入してください&#34;,
+<span style="color:#a6e22e">+   &#34;WEBHOOK_URL&#34;: &#34;Webhook URLを記入してください &#34;,
+</span><span style="color:#a6e22e"></span>}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">import tweepy
+<span style="color:#a6e22e">+import requests
+</span><span style="color:#a6e22e">+import json
+</span><span style="color:#a6e22e"></span>from config import CONFIG
+
+auth = tweepy.OAuthHandler(CONFIG[&#34;CONSUMER_KEY&#34;], CONFIG[&#34;CONSUMER_SECRET&#34;])
+auth.set_access_token(CONFIG[&#34;ACCESS_TOKEN&#34;], CONFIG[&#34;ACCESS_SECRET&#34;])
+# APIインスタンスを作成
+api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+
+<span style="color:#a6e22e">+webhook_url = CONFIG[&#34;WEBHOOK_URL&#34;]
+</span><span style="color:#a6e22e"></span>
+# フォローしているユーザーのwatch_listを作成
+followee_ids = api.friends_ids(screen_name=api.me().screen_name)
+watch_list = [str(user_id) for user_id in followee_ids]
+watch_list.append(str(api.me().id))
+
+# デフォルトのアクセスレベルではfollowには5000人まで指定できるため
+assert(len(watch_list) &lt;= 5000)
+
+class MyStreamListener(tweepy.StreamListener):
+    def on_status(self, status):
+	# @ツイートは表示しない．
+        if &#34;@&#34; in status.text:
+            pass
+        else:
+<span style="color:#a6e22e">+	    # ユーザーの情報を取得
+</span><span style="color:#a6e22e">+	    user_id = status.user.id
+</span><span style="color:#a6e22e">+           user = api.get_user(user_id)
+</span><span style="color:#a6e22e">+           main_content = {
+</span><span style="color:#a6e22e">+                  &#39;username&#39;: status.user.name,
+</span><span style="color:#a6e22e">+                  &#39;avatar_url&#39;: user.profile_image_url_https,
+</span><span style="color:#a6e22e">+                  &#39;content&#39;: status.text
+</span><span style="color:#a6e22e">+           }
+</span><span style="color:#a6e22e">+           headers = {&#39;Content-Type&#39;: &#39;application/json&#39;}
+</span><span style="color:#a6e22e">+           response = requests.post(webhook_url, json.dumps(main_content), headers=headers)
+</span><span style="color:#a6e22e"></span>
+            print(&#39;-------------------------------------------&#39;)
+            print(&#39;name:&#39; + status.user.name)
+            print(status.text)
+
+myStreamListener = MyStreamListener()
+myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
+myStream.filter(follow=watch_list)
+</code></pre></div><p>プライバシーの関係上大部分を隠しているのでみづらいですがこんな感じで表示されるはずです．
+<img src="https://storage.googleapis.com/zenn-user-upload/d0e21054d0bf9ea23fd5aafe.png" alt=""></p>
+<h1 id="おまけ">おまけ</h1>
+<p>Twitterを目で見るのは疲れるのでTwitter読み上げソフトを探していたのですが，Discordにツイートを投げちゃえば，後は読み上げるBotを作るだけなので，<a href="https://qiita.com/Sashimimochi/items/aad6bcfa2d6096212d4c">こちらの記事</a>を参考に実際にツイートを読み上げてもらうようにしました．</p>
+<p>こちらはツイートではないですが，結構いい感じに読んでくれます．</p>
+<p><a href="https://youtu.be/oMiyYVsAiI8">実行動画</a></p>
+<h1 id="おわりに">おわりに</h1>
+<p>DiscordにTwitterタイムラインを実装できたけど，いいねもできないしリプライもできないのでTwitterとして利用するには別のBotを作る必要があります．<br>
+ただ実装はとても楽なのでTweetを音で読みたいだけの人にはちょうどいいのかなと思ったりはしました．  鍵垢のツイートははじかれていますが，プライバシー的に共用のサーバでタイムラインを垂れ流しにするのはよくない気がするので，使い方には気をつけてください．</p>
+<h1 id="参考文献">参考文献</h1>
+<p><a href="https://blog.hatena.ne.jp/login?blog=https%3A%2F%2Fkivantium.hateblo.jp%2Fentry%2F2020%2F04%2F15%2F235422">https://blog.hatena.ne.jp/login?blog=https%3A%2F%2Fkivantium.hateblo.jp%2Fentry%2F2020%2F04%2F15%2F235422</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
