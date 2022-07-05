@@ -33,7 +33,7 @@ pygmentsCodeFences = true
 
 [params]
   author = "retact"
-  description = "Mechanical Engineering B3."
+  description = "Mechanical Engineering B4."
   menu_item_separator = " - "
   [[params.social]]
     icon = "github"

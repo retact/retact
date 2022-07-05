@@ -63,14 +63,15 @@ import numpy as np import myplotlib.pyplot as plt #　Standardization dev1_emg1=
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://retact.github.io/retact/about/</guid>
-      <description>I will contribute to the development of sEMG-based entertainment and human-assisted robotics by improving and simplifying the non-invasive acquisition and analysis of EMG data.
+      <description>I like to develop embedded systems using Mbed and systems using Raspberry Pi and analyze biological signals.
+I want to be a developer that can understand and develop from lower layers to hardware.
 Profile retact - Takuto Soeda
-Age - 20
+Age - 22
 Labo - Assistive Robotics Laboratory
-Words - sEMG, Prothetic-hand, EMG-ArmBand
-Like - EMG,vim,VR
-Result Activities Cansat,Rocket,EMG-ArmBand
- 2021- Assistive Robotics Laboratory 2021- K3(club activities) 2019-2020 Programming Instructor at LITALICO Inc. 2019-2020 CORE(Charange of Rockets Engineering) Avionics group  Ptarmigan - Gemini QUEST Amatsukaze - Stream Conductor (Piglet _- CRYSTAL PALACE)   2019- Department of Mechanical Engineering, Hosei University 2018 Participated in the CANSAT European Competition 2018  Yatagarasu   2018 Awarded Kawasaki City Cultural Prize 2018 Received Hosei University&amp;rsquo;s Future of Society Award 2017 Winner of the CANSAT Koshien National Competition  GEMINI    </description>
+Words - Rocket, Prothetic-hand, EMG-ArmBand
+Like - EMG, vim, VR, Raspberry pi
+Result Activities Cansat, Rocket, EMG-ArmBand, Robotics
+ 2021- Assistive Robotics Laboratory 2021- K3(club activities) 2019-2020 Programming Instructor at LITALICO Inc.</description>
     </item>
     
   </channel>

@@ -2,14 +2,15 @@
 title = "About me"
 +++
  
- I will contribute to the development of sEMG-based entertainment and human-assisted robotics by improving and simplifying the non-invasive acquisition and analysis of EMG data.  
- 
+I like to develop embedded systems using Mbed and systems using Raspberry Pi and analyze biological signals.  
+I want to be a developer that can understand and develop from lower layers to hardware.
+
 #### Profile
  retact - Takuto Soeda  
- Age - 20  
+ Age - 22  
  Labo - [Assistive Robotics Laboratory](http://assistrobotics.ws.hosei.ac.jp/)  
- Words - sEMG, Prothetic-hand, EMG-ArmBand  
- Like - EMG,vim,VR  
+ Words - Rocket, Prothetic-hand, EMG-ArmBand  
+ Like - EMG, vim, VR, Raspberry pi  
 
   
  
@@ -18,7 +19,8 @@ title = "About me"
 #### Activities  
 
 
- Cansat,Rocket,EMG-ArmBand  
+ Cansat, Rocket, EMG-ArmBand, Robotics  
+
 
  
  * 2021-&emsp;  [Assistive Robotics Laboratory](http://assistrobotics.ws.hosei.ac.jp/)  
