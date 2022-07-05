@@ -22,9 +22,10 @@ I want to be a developer that can understand and develop from lower layers to ha
  Cansat, Rocket, EMG classification, Robotics  
 
 
- 
+
  * 2021-&emsp;  [Assistive Robotics Laboratory](http://assistrobotics.ws.hosei.ac.jp/)  
- * 2021-&emsp;   [K3](http://k3tec.net/neko_wiki/index.php)(club activities)  
+    * [Deep Learning for Gesture Recognition based on Surface EMG Data](https://ieeexplore.ieee.org/document/9661533)  
+ * 2021-2022&emsp;   [K3](http://k3tec.net/neko_wiki/index.php)(club activities)  
  * 2019-2020&emsp;    Programming Instructor at [LITALICO Inc](https://litalico.co.jp/).  
  * 2019-2020&emsp;    [CORE(Charange of Rockets Engineering)](https://corerocket.net/) Avionics group  
     * Ptarmigan - Gemini QUEST  
