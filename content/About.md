@@ -2,7 +2,7 @@
 title = "About me"
 +++
  
-I like to develop embedded systems using Mbed and systems using Raspberry Pi and analyze biological signals.  
+I like to develop embedded systems using Mbed and Raspberry Pi and analyze biological signals.  
 I want to be a developer that can understand and develop from lower layers to hardware.
 
 #### Profile
@@ -19,7 +19,7 @@ I want to be a developer that can understand and develop from lower layers to ha
 #### Activities  
 
 
- Cansat, Rocket, EMG-ArmBand, Robotics  
+ Cansat, Rocket, EMG classification, Robotics  
 
 
  
