@@ -1,11 +1,5 @@
-+++
-title = "Portfolio"
-+++
 
-&nbsp;
-&nbsp;
-
-# {{< color "#c5b4d1" " チーム開発制作物(抜粋)"  >}} 
+# {{< color "#c5b4d1" " チーム開発制作物"  >}} 
 
 ### [ - 除菌ロボット](/portfolio/corona/)  
 ソフトウェア，電装 

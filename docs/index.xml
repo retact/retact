@@ -143,29 +143,12 @@ import numpy as np import myplotlib.pyplot as plt #　Standardization dev1_emg1=
     </item>
     
     <item>
-      <title>About me</title>
-      <link>https://retact.github.io/retact/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://retact.github.io/retact/about/</guid>
-      <description>I like to develop embedded systems using Mbed and Raspberry Pi and analyze biological signals.
-I want to be a developer that can understand and develop from lower layers to hardware.
-Profile retact - Takuto Soeda
-Age - 22
-Labo - Assistive Robotics Laboratory
-Words - Rocket, Prothetic-hand, EMG-ArmBand
-Like - EMG, vim, VR, Raspberry pi
-Result Activities Cansat, Rocket, EMG classification, Robotics
- 2021- Assistive Robotics Laboratory  Deep Learning for Gesture Recognition based on Surface EMG Data   2021-2022 K3(club activities) 2019-2020 Programming Instructor at LITALICO Inc.</description>
-    </item>
-    
-    <item>
-      <title>Portfolio</title>
+      <title></title>
       <link>https://retact.github.io/retact/portfolios/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://retact.github.io/retact/portfolios/</guid>
-      <description>チーム開発制作物(抜粋)  - 除菌ロボット ソフトウェア，電装
+      <description>チーム開発制作物  - 除菌ロボット ソフトウェア，電装
 - 筋電義手-ジェスチャー分類 研究，ソフトウェア
 - 八咫烏-国際大会CANSAT PM，ソフトウェア
  スキル  言語 C ★★★☆
@@ -183,6 +166,23 @@ Mbed compiler-(3年間使用)
 Linux-(Ubuntu, RaspberrypiOS)
 Mac OS-(4年間使用)
 英会話-(日常会話レベル)</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://retact.github.io/retact/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://retact.github.io/retact/about/</guid>
+      <description>I like to develop embedded systems using Mbed and Raspberry Pi and analyze biological signals.
+I want to be a developer that can understand and develop from lower layers to hardware.
+Profile retact - Takuto Soeda
+Age - 22
+Labo - Assistive Robotics Laboratory
+Words - Rocket, Prothetic-hand, EMG-ArmBand
+Like - EMG, vim, VR, Raspberry pi
+Result Activities Cansat, Rocket, EMG classification, Robotics
+ 2021- Assistive Robotics Laboratory  Deep Learning for Gesture Recognition based on Surface EMG Data   2021-2022 K3(club activities) 2019-2020 Programming Instructor at LITALICO Inc.</description>
     </item>
     
   </channel>
