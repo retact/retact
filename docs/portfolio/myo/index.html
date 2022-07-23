@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>筋電義手 // retact</title>
+    <link rel="shortcut icon" href="https://retact.github.io/retact/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="retact" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://retact.github.io/retact/css/main.min.9902bd4f092e5478c599d060a69fa262971e83c21f9e10cca6f4d71d1856800e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="筋電義手"/>
+<meta name="twitter:description" content="開発期間: 2年
+使用言語: python3.7 論文: Deep Learning for Gesture Recognition based on Surface EMG Data
+ソースコード1: リアルタイム分類システム
+ソースコード2: Myo Logger
+論文収集
+概要 腕の筋電図(筋肉の信号)から3層CNNモデルにより，52動作のジェスチャー分類と制御を可能にした義手の研究です.
+また，リアルタイムシステムの構築によって，平均195ms以下のレスポンスタイムで義手に反映させることに成功しました．
+目的 日本における能動義手の普及率が各国と比較して低い状態にある原因として，ジェスチャが限られていることや，操作性が低いことがあげられます．ここで深層学習モデルを用いた分類を行うことによって，ジェスチャの動作数を増やし，リアルタイムシステムを構築することによって300ms(人間が知覚して違和感の感じない制限時間)以下のレスポンスタイムで動作をする機能性を実現する必要があります．"/>
+
+    <meta property="og:title" content="筋電義手" />
+<meta property="og:description" content="開発期間: 2年
+使用言語: python3.7 論文: Deep Learning for Gesture Recognition based on Surface EMG Data
+ソースコード1: リアルタイム分類システム
+ソースコード2: Myo Logger
+論文収集
+概要 腕の筋電図(筋肉の信号)から3層CNNモデルにより，52動作のジェスチャー分類と制御を可能にした義手の研究です.
+また，リアルタイムシステムの構築によって，平均195ms以下のレスポンスタイムで義手に反映させることに成功しました．
+目的 日本における能動義手の普及率が各国と比較して低い状態にある原因として，ジェスチャが限られていることや，操作性が低いことがあげられます．ここで深層学習モデルを用いた分類を行うことによって，ジェスチャの動作数を増やし，リアルタイムシステムを構築することによって300ms(人間が知覚して違和感の感じない制限時間)以下のレスポンスタイムで動作をする機能性を実現する必要があります．" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://retact.github.io/retact/portfolio/myo/" /><meta property="article:section" content="portfolio" />
+<meta property="article:published_time" content="2022-07-20T01:28:40&#43;09:00" />
+<meta property="article:modified_time" content="2022-07-20T01:28:40&#43;09:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://retact.github.io/retact/"><img class="app-header-avatar" src="https://retact.github.io/retact/avatar.jpg" alt="retact" /></a>
+      <h1>retact</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://ps.retact.net/">Paper-Survey</a>
+      </nav>
+      <p>Mechanical Engineering B4.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/_retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">筋電義手</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 20, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/xli2Wd_343k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>開発期間: 2年<br>
+使用言語: python3.7   <br>
+論文: <a href="https://ieeexplore.ieee.org/document/9661533">Deep Learning for Gesture Recognition based on Surface EMG Data</a><br>
+ソースコード1: <a href="https://github.com/retact/real-time-myo">リアルタイム分類システム</a><br>
+ソースコード2: <a href="https://github.com/retact/Myo-Logger">Myo Logger</a><br>
+<a href="https://ps.retact.net/">論文収集</a></p>
+<h1 id="概要">概要</h1>
+<p>腕の筋電図(筋肉の信号)から3層CNNモデルにより，52動作のジェスチャー分類と制御を可能にした義手の研究です.<br>
+また，リアルタイムシステムの構築によって，平均195ms以下のレスポンスタイムで義手に反映させることに成功しました．</p>
+<h1 id="目的">目的</h1>
+<p>日本における能動義手の普及率が各国と比較して低い状態にある原因として，ジェスチャが限られていることや，操作性が低いことがあげられます．ここで深層学習モデルを用いた分類を行うことによって，ジェスチャの動作数を増やし，リアルタイムシステムを構築することによって300ms(人間が知覚して違和感の感じない制限時間)以下のレスポンスタイムで動作をする機能性を実現する必要があります．</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

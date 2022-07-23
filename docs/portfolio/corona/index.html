@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>除菌ロボット // retact</title>
+    <link rel="shortcut icon" href="https://retact.github.io/retact/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="retact" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://retact.github.io/retact/css/main.min.9902bd4f092e5478c599d060a69fa262971e83c21f9e10cca6f4d71d1856800e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="除菌ロボット"/>
+<meta name="twitter:description" content="開発期間: 5ヶ月
+使用言語: python3.7 担当: ソフトウェア, 電装
+概要 昨今のウィルス感染が問題視されるなかで机の消毒を自動で行うことのできるロボットとしての開発を行ったものです．
+机を認識し，紫外線ライトを使うことによって消毒する機能を果たします．
+机の途中に障害物があった際には消毒を中断し，縦方向に動くモーターを動作させることによって障害物を避けることができます.
+目的と課題 病院や教育施設をはじめとした多くの場所において，消毒する作業が人の手によって行われています．その中で不特定多数の人が触れる机を人の手を使わず消毒することを目的としてロボットを製作しました. 大学の机の上には人の所有物がある場合があります．そのためそのような物体を認識して消毒をする場所を選定するシステムを製作する必要があります．
+また消毒方法として，消毒液の散布，紫外線の照射などが挙げられますが，消毒液の散布には机が濡れてしまうデメリットがあるため，紫外線による消毒を行えるシステムを構築する必要などがあります．
+電装 Raspberry Pi 4 ModelB (B-4GB)をメインボードとして使用し，物体の検知，物体までの距離を測定するセンサー群と，移動や物体回避を担うアクチュエータ群，紫外線ライトを制御する消毒群から構成されています．
+PWMの制御は移動用モータに使用し，前進，後進，右回転，左回転を行うことができ，紫外線ライトは12vの電圧を必要とするためフォトカプラを使用した合計4つのスイッチを利用し，照射する範囲を制御することができます．
+ソフトウェア ソフトウェアはRaspberry piで環境構築を行いやすいPython3を使用して制作しました.
+制御ソフトウェアと認識ソフトウェアはそれぞれマルチプロセスによって稼働しておりshared memoryを利用してそれぞれの情報共有を行っています.
+webカメラの入力に対して，MobileSSDによって生成されたモデルを用いて分類を行い，障害物と机を認識します．モデルによって得たラベルを共有することによって制御ソフトウェアのAvoid processに移行し，超音波センサを利用して距離を測定することで物体を避けたり，机に近づくことのできるシステムを実現しました．"/>
+
+    <meta property="og:title" content="除菌ロボット" />
+<meta property="og:description" content="開発期間: 5ヶ月
+使用言語: python3.7 担当: ソフトウェア, 電装
+概要 昨今のウィルス感染が問題視されるなかで机の消毒を自動で行うことのできるロボットとしての開発を行ったものです．
+机を認識し，紫外線ライトを使うことによって消毒する機能を果たします．
+机の途中に障害物があった際には消毒を中断し，縦方向に動くモーターを動作させることによって障害物を避けることができます.
+目的と課題 病院や教育施設をはじめとした多くの場所において，消毒する作業が人の手によって行われています．その中で不特定多数の人が触れる机を人の手を使わず消毒することを目的としてロボットを製作しました. 大学の机の上には人の所有物がある場合があります．そのためそのような物体を認識して消毒をする場所を選定するシステムを製作する必要があります．
+また消毒方法として，消毒液の散布，紫外線の照射などが挙げられますが，消毒液の散布には机が濡れてしまうデメリットがあるため，紫外線による消毒を行えるシステムを構築する必要などがあります．
+電装 Raspberry Pi 4 ModelB (B-4GB)をメインボードとして使用し，物体の検知，物体までの距離を測定するセンサー群と，移動や物体回避を担うアクチュエータ群，紫外線ライトを制御する消毒群から構成されています．
+PWMの制御は移動用モータに使用し，前進，後進，右回転，左回転を行うことができ，紫外線ライトは12vの電圧を必要とするためフォトカプラを使用した合計4つのスイッチを利用し，照射する範囲を制御することができます．
+ソフトウェア ソフトウェアはRaspberry piで環境構築を行いやすいPython3を使用して制作しました.
+制御ソフトウェアと認識ソフトウェアはそれぞれマルチプロセスによって稼働しておりshared memoryを利用してそれぞれの情報共有を行っています.
+webカメラの入力に対して，MobileSSDによって生成されたモデルを用いて分類を行い，障害物と机を認識します．モデルによって得たラベルを共有することによって制御ソフトウェアのAvoid processに移行し，超音波センサを利用して距離を測定することで物体を避けたり，机に近づくことのできるシステムを実現しました．" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://retact.github.io/retact/portfolio/corona/" /><meta property="article:section" content="portfolio" />
+<meta property="article:published_time" content="2022-07-23T01:28:40&#43;09:00" />
+<meta property="article:modified_time" content="2022-07-23T01:28:40&#43;09:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://retact.github.io/retact/"><img class="app-header-avatar" src="https://retact.github.io/retact/avatar.jpg" alt="retact" /></a>
+      <h1>retact</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://ps.retact.net/">Paper-Survey</a>
+      </nav>
+      <p>Mechanical Engineering B4.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/_retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">除菌ロボット</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 23, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/X4PmyQvjcDQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>開発期間: 5ヶ月<br>
+使用言語: python3.7 <br>
+担当: ソフトウェア, 電装</p>
+<h1 id="概要">概要</h1>
+<p><img src="https://retact.github.io/retact/img/corona/Image_3.png" alt="system"></p>
+<p>昨今のウィルス感染が問題視されるなかで机の消毒を自動で行うことのできるロボットとしての開発を行ったものです．<br>
+机を認識し，紫外線ライトを使うことによって消毒する機能を果たします．<br>
+机の途中に障害物があった際には消毒を中断し，縦方向に動くモーターを動作させることによって障害物を避けることができます.</p>
+<h1 id="目的と課題">目的と課題</h1>
+<p>病院や教育施設をはじめとした多くの場所において，消毒する作業が人の手によって行われています．その中で不特定多数の人が触れる机を人の手を使わず消毒することを目的としてロボットを製作しました. 大学の机の上には人の所有物がある場合があります．そのためそのような物体を認識して消毒をする場所を選定するシステムを製作する必要があります．<br>
+また消毒方法として，消毒液の散布，紫外線の照射などが挙げられますが，消毒液の散布には机が濡れてしまうデメリットがあるため，紫外線による消毒を行えるシステムを構築する必要などがあります．</p>
+<h1 id="電装">電装</h1>
+<p><img src="https://retact.github.io/retact/img/corona/Image_1.png" alt="system"></p>
+<p>Raspberry Pi 4 ModelB (B-4GB)をメインボードとして使用し，物体の検知，物体までの距離を測定するセンサー群と，移動や物体回避を担うアクチュエータ群，紫外線ライトを制御する消毒群から構成されています．<br>
+PWMの制御は移動用モータに使用し，前進，後進，右回転，左回転を行うことができ，紫外線ライトは12vの電圧を必要とするためフォトカプラを使用した合計4つのスイッチを利用し，照射する範囲を制御することができます．</p>
+<h1 id="ソフトウェア">ソフトウェア</h1>
+<p><img src="https://retact.github.io/retact/img/corona/Image_2.jpg" alt="system"></p>
+<p>ソフトウェアはRaspberry piで環境構築を行いやすいPython3を使用して制作しました.<br>
+制御ソフトウェアと認識ソフトウェアはそれぞれマルチプロセスによって稼働しておりshared memoryを利用してそれぞれの情報共有を行っています.<br>
+webカメラの入力に対して，MobileSSDによって生成されたモデルを用いて分類を行い，障害物と机を認識します．モデルによって得たラベルを共有することによって制御ソフトウェアのAvoid processに移行し，超音波センサを利用して距離を測定することで物体を避けたり，机に近づくことのできるシステムを実現しました．</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

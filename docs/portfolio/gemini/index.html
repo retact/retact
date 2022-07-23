@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>Gemini-遭難者捜索CANSAT // retact</title>
+    <link rel="shortcut icon" href="https://retact.github.io/retact/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="retact" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://retact.github.io/retact/css/main.min.9902bd4f092e5478c599d060a69fa262971e83c21f9e10cca6f4d71d1856800e.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gemini-遭難者捜索CANSAT"/>
+<meta name="twitter:description" content="開発期間: 3ヶ月
+使用言語: C&#43;&#43; (mbed compiler) 担当: PM
+開発人数: 5人
+概要 2017 缶サット全国大会にて製作した小型模擬人工衛星「Gemini」です．
+ロケットから放出された後，親機，子機の2機に分離しそれぞれの通信機が電波強度によって発信機までの距離を求めることで，発信機の位置を特定することができます．
+目的 製作当時，山岳遭難者が観光者数などの増加と比例して多くなっている傾向がありました．遭難は惑星探査においても起こりうる事象で，GPSなどが使えない環境では新たな探査機構が必要になります．そこで電波強度を利用した新たな遭難者捜索方法を実現するために，2機に分離し，発信機の電波強度を観測することのできるCANSAT「Gemini」を製作しました．．
+ミッション ロケットから放出した後，CANSATはパラフォイルを展開し，発信機の電波を受信し，RSSI値(電波強度データ)と気圧データを組み合わせることにより，地図上の発信機までの円状の距離を特定します．これを2機の機体で複数回データを算出することで降下してくるまでの間に発信機の位置を特定することができます．
+構成 設計は123Designを用いて行い，Eagleを使って設計されたプリント基盤によって配線が簡略化されています．-10℃の環境下でも10時間の運用が確認しているリチウムイオン電池と，パラフォイルを制御するためのモータが2つ，通信機には2.4ghzの「XBeeS2C」と「XBeePro」を搭載してそれぞれの機能をになっています．またトリガーつきミニスパイカメラを搭載しているため，遭難者捜索に役立つ画像データを入手することができます．"/>
+
+    <meta property="og:title" content="Gemini-遭難者捜索CANSAT" />
+<meta property="og:description" content="開発期間: 3ヶ月
+使用言語: C&#43;&#43; (mbed compiler) 担当: PM
+開発人数: 5人
+概要 2017 缶サット全国大会にて製作した小型模擬人工衛星「Gemini」です．
+ロケットから放出された後，親機，子機の2機に分離しそれぞれの通信機が電波強度によって発信機までの距離を求めることで，発信機の位置を特定することができます．
+目的 製作当時，山岳遭難者が観光者数などの増加と比例して多くなっている傾向がありました．遭難は惑星探査においても起こりうる事象で，GPSなどが使えない環境では新たな探査機構が必要になります．そこで電波強度を利用した新たな遭難者捜索方法を実現するために，2機に分離し，発信機の電波強度を観測することのできるCANSAT「Gemini」を製作しました．．
+ミッション ロケットから放出した後，CANSATはパラフォイルを展開し，発信機の電波を受信し，RSSI値(電波強度データ)と気圧データを組み合わせることにより，地図上の発信機までの円状の距離を特定します．これを2機の機体で複数回データを算出することで降下してくるまでの間に発信機の位置を特定することができます．
+構成 設計は123Designを用いて行い，Eagleを使って設計されたプリント基盤によって配線が簡略化されています．-10℃の環境下でも10時間の運用が確認しているリチウムイオン電池と，パラフォイルを制御するためのモータが2つ，通信機には2.4ghzの「XBeeS2C」と「XBeePro」を搭載してそれぞれの機能をになっています．またトリガーつきミニスパイカメラを搭載しているため，遭難者捜索に役立つ画像データを入手することができます．" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://retact.github.io/retact/portfolio/gemini/" /><meta property="article:section" content="portfolio" />
+<meta property="article:published_time" content="2022-07-23T01:28:40&#43;09:00" />
+<meta property="article:modified_time" content="2022-07-23T01:28:40&#43;09:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://retact.github.io/retact/"><img class="app-header-avatar" src="https://retact.github.io/retact/avatar.jpg" alt="retact" /></a>
+      <h1>retact</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://retact.github.io/retact/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://ps.retact.net/">Paper-Survey</a>
+      </nav>
+      <p>Mechanical Engineering B4.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/_retact" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Gemini-遭難者捜索CANSAT</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 23, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>開発期間: 3ヶ月<br>
+使用言語: C++ (mbed compiler) <br>
+担当: PM<br>
+開発人数: 5人</p>
+<h1 id="概要">概要</h1>
+<p><img src="https://retact.github.io/retact/img/gemini/Picture1.jpg" alt="system"></p>
+<p>2017 缶サット全国大会にて製作した小型模擬人工衛星「Gemini」です．<br>
+ロケットから放出された後，親機，子機の2機に分離しそれぞれの通信機が電波強度によって発信機までの距離を求めることで，発信機の位置を特定することができます．</p>
+<h1 id="目的">目的</h1>
+<p>製作当時，山岳遭難者が観光者数などの増加と比例して多くなっている傾向がありました．遭難は惑星探査においても起こりうる事象で，GPSなどが使えない環境では新たな探査機構が必要になります．そこで電波強度を利用した新たな遭難者捜索方法を実現するために，2機に分離し，発信機の電波強度を観測することのできるCANSAT「Gemini」を製作しました．．</p>
+<h1 id="ミッション">ミッション</h1>
+<p><img src="https://retact.github.io/retact/img/gemini/Picture2.png" alt="system"></p>
+<p>ロケットから放出した後，CANSATはパラフォイルを展開し，発信機の電波を受信し，RSSI値(電波強度データ)と気圧データを組み合わせることにより，地図上の発信機までの円状の距離を特定します．これを2機の機体で複数回データを算出することで降下してくるまでの間に発信機の位置を特定することができます．</p>
+<h1 id="構成">構成</h1>
+<p><img src="https://retact.github.io/retact/img/gemini/Picture4.jpg" alt="system"></p>
+<p>設計は123Designを用いて行い，Eagleを使って設計されたプリント基盤によって配線が簡略化されています．-10℃の環境下でも10時間の運用が確認しているリチウムイオン電池と，パラフォイルを制御するためのモータが2つ，通信機には2.4ghzの「XBeeS2C」と「XBeePro」を搭載してそれぞれの機能をになっています．またトリガーつきミニスパイカメラを搭載しているため，遭難者捜索に役立つ画像データを入手することができます．</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

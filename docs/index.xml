@@ -6,7 +6,92 @@
     <description>Recent content on retact</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 07 Sep 2021 01:28:40 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Jul 2022 01:28:40 +0900</lastBuildDate><atom:link href="https://retact.github.io/retact/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amatsukaze-ロケット</title>
+      <link>https://retact.github.io/retact/portfolio/amatsukaze/</link>
+      <pubDate>Sat, 23 Jul 2022 01:28:40 +0900</pubDate>
+      
+      <guid>https://retact.github.io/retact/portfolio/amatsukaze/</guid>
+      <description>開発期間: 3ヶ月
+使用言語: C++ (Mbed compiler) 担当: サブPM, 電装, ロガー
+ソースコード
+概要 点火から機体回収における全てのシーケンスを実行すること，またフライトデータおよびロケットを回収し，解析結果を取得するを目的としたロケット
+ロガー ロケットのフライトデータを記録するためのロガーの製作を行った．基盤の設計はAUTODESK社のEAGLEにて行った．
+ロガーの特徴として，気圧センサ(LPS22HB)，9軸センサ(MPU9250)を搭載し，これらのセンサデータはMicroSDカードに記録される．
+マイコンはSTM303K8T6を使用し，さらに無線機を搭載によりダウンリンクを行える設計にした．マイコンへの書き込み用端子としてミニUSB端子，Serial通信を行うためのマイクロUSBを分けることで，誤動作の帽子を行った．
+また，GNDと5Vの配線をUSB標準の規格に合わせることによって謝ってusb接続をしてもロガーが破損しないように工夫を行った．</description>
+    </item>
+    
+    <item>
+      <title>Gemini-遭難者捜索CANSAT</title>
+      <link>https://retact.github.io/retact/portfolio/gemini/</link>
+      <pubDate>Sat, 23 Jul 2022 01:28:40 +0900</pubDate>
+      
+      <guid>https://retact.github.io/retact/portfolio/gemini/</guid>
+      <description>開発期間: 3ヶ月
+使用言語: C++ (mbed compiler) 担当: PM
+開発人数: 5人
+概要 2017 缶サット全国大会にて製作した小型模擬人工衛星「Gemini」です．
+ロケットから放出された後，親機，子機の2機に分離しそれぞれの通信機が電波強度によって発信機までの距離を求めることで，発信機の位置を特定することができます．
+目的 製作当時，山岳遭難者が観光者数などの増加と比例して多くなっている傾向がありました．遭難は惑星探査においても起こりうる事象で，GPSなどが使えない環境では新たな探査機構が必要になります．そこで電波強度を利用した新たな遭難者捜索方法を実現するために，2機に分離し，発信機の電波強度を観測することのできるCANSAT「Gemini」を製作しました．．
+ミッション ロケットから放出した後，CANSATはパラフォイルを展開し，発信機の電波を受信し，RSSI値(電波強度データ)と気圧データを組み合わせることにより，地図上の発信機までの円状の距離を特定します．これを2機の機体で複数回データを算出することで降下してくるまでの間に発信機の位置を特定することができます．
+構成 設計は123Designを用いて行い，Eagleを使って設計されたプリント基盤によって配線が簡略化されています．-10℃の環境下でも10時間の運用が確認しているリチウムイオン電池と，パラフォイルを制御するためのモータが2つ，通信機には2.4ghzの「XBeeS2C」と「XBeePro」を搭載してそれぞれの機能をになっています．またトリガーつきミニスパイカメラを搭載しているため，遭難者捜索に役立つ画像データを入手することができます．</description>
+    </item>
+    
+    <item>
+      <title>八咫烏-国際大会CANSAT</title>
+      <link>https://retact.github.io/retact/portfolio/yatagarasu/</link>
+      <pubDate>Sat, 23 Jul 2022 01:28:40 +0900</pubDate>
+      
+      <guid>https://retact.github.io/retact/portfolio/yatagarasu/</guid>
+      <description>開発期間: 6ヶ月
+使用言語: C++ (mbed compiler) 担当: PM
+開発人数: 5人
+概要 2018 Cansat European Competitionにて製作した小型模擬人工衛星，「八咫烏(Yatagarasu)」です．
+2017年日本大会の山岳遭難者を捜索するCANSAT「Gemini」の後継機で，ロケットにより上空で放出された後，パラフォイルを利用した航法制御により発信機の場所まで向かい，ローバの走行によって発信機の位置まで辿り着くことをミッションとしたCANSATです.
+目的と課題 遭難者捜索CANSAT「Gemini」の後継機として，ただ降下して遭難者の位置を特定するだけではなく，パラフォイルを利用した航法制御に加え，走行機構を取り付けることにより遭難者を想定した発信機に接近することを目的としたミッションを設定したCANSATの製作を行いました．航法制御と走行制御のどちらも同一デバイスによって行う必要があるため，モード切り替えやパラフォイルの切り離しを行う必要があります．
+ミッション ロケット放出後，初めに発信機のデータを取得し，そのGPSデータとCANSATのGPSデータを元に航法制御を行います．着陸した後はパラフォイルを切断し，ローバーモードに切り替え，取得したGPSデータを元に発信機まで向かいます．
+構成   設計は123Designを用いて行い，Eagleを使って設計されたプリント基盤によって配線が簡略化されています．また-10℃の環境下でも10時間の運用が確認しているリチウムイオン電池と，走行モードの際に必要な安定棒射出装置，通信機には2.4ghzの「XBeeS2C」を搭載してそれぞれの機能をになっています．
+システムは航法モードと走行モードからなり，気圧センサによって高度を算出し，地上の着陸を確認すると安定棒を出すことによってパラフォイルを切り離し，走行モードへと移行します．</description>
+    </item>
+    
+    <item>
+      <title>除菌ロボット</title>
+      <link>https://retact.github.io/retact/portfolio/corona/</link>
+      <pubDate>Sat, 23 Jul 2022 01:28:40 +0900</pubDate>
+      
+      <guid>https://retact.github.io/retact/portfolio/corona/</guid>
+      <description>開発期間: 5ヶ月
+使用言語: python3.7 担当: ソフトウェア, 電装
+概要 昨今のウィルス感染が問題視されるなかで机の消毒を自動で行うことのできるロボットとしての開発を行ったものです．
+机を認識し，紫外線ライトを使うことによって消毒する機能を果たします．
+机の途中に障害物があった際には消毒を中断し，縦方向に動くモーターを動作させることによって障害物を避けることができます.
+目的と課題 病院や教育施設をはじめとした多くの場所において，消毒する作業が人の手によって行われています．その中で不特定多数の人が触れる机を人の手を使わず消毒することを目的としてロボットを製作しました. 大学の机の上には人の所有物がある場合があります．そのためそのような物体を認識して消毒をする場所を選定するシステムを製作する必要があります．
+また消毒方法として，消毒液の散布，紫外線の照射などが挙げられますが，消毒液の散布には机が濡れてしまうデメリットがあるため，紫外線による消毒を行えるシステムを構築する必要などがあります．
+電装 Raspberry Pi 4 ModelB (B-4GB)をメインボードとして使用し，物体の検知，物体までの距離を測定するセンサー群と，移動や物体回避を担うアクチュエータ群，紫外線ライトを制御する消毒群から構成されています．
+PWMの制御は移動用モータに使用し，前進，後進，右回転，左回転を行うことができ，紫外線ライトは12vの電圧を必要とするためフォトカプラを使用した合計4つのスイッチを利用し，照射する範囲を制御することができます．
+ソフトウェア ソフトウェアはRaspberry piで環境構築を行いやすいPython3を使用して制作しました.
+制御ソフトウェアと認識ソフトウェアはそれぞれマルチプロセスによって稼働しておりshared memoryを利用してそれぞれの情報共有を行っています.
+webカメラの入力に対して，MobileSSDによって生成されたモデルを用いて分類を行い，障害物と机を認識します．モデルによって得たラベルを共有することによって制御ソフトウェアのAvoid processに移行し，超音波センサを利用して距離を測定することで物体を避けたり，机に近づくことのできるシステムを実現しました．</description>
+    </item>
+    
+    <item>
+      <title>筋電義手</title>
+      <link>https://retact.github.io/retact/portfolio/myo/</link>
+      <pubDate>Wed, 20 Jul 2022 01:28:40 +0900</pubDate>
+      
+      <guid>https://retact.github.io/retact/portfolio/myo/</guid>
+      <description>開発期間: 2年
+使用言語: python3.7 論文: Deep Learning for Gesture Recognition based on Surface EMG Data
+ソースコード1: リアルタイム分類システム
+ソースコード2: Myo Logger
+論文収集
+概要 腕の筋電図(筋肉の信号)から3層CNNモデルにより，52動作のジェスチャー分類と制御を可能にした義手の研究です.
+また，リアルタイムシステムの構築によって，平均195ms以下のレスポンスタイムで義手に反映させることに成功しました．
+目的 日本における能動義手の普及率が各国と比較して低い状態にある原因として，ジェスチャが限られていることや，操作性が低いことがあげられます．ここで深層学習モデルを用いた分類を行うことによって，ジェスチャの動作数を増やし，リアルタイムシステムを構築することによって300ms(人間が知覚して違和感の感じない制限時間)以下のレスポンスタイムで動作をする機能性を実現する必要があります．</description>
+    </item>
+    
     <item>
       <title>TwitterのタイムラインをDiscordに表示させる</title>
       <link>https://retact.github.io/retact/posts/twitter-discord/</link>
@@ -72,6 +157,32 @@ Words - Rocket, Prothetic-hand, EMG-ArmBand
 Like - EMG, vim, VR, Raspberry pi
 Result Activities Cansat, Rocket, EMG classification, Robotics
  2021- Assistive Robotics Laboratory  Deep Learning for Gesture Recognition based on Surface EMG Data   2021-2022 K3(club activities) 2019-2020 Programming Instructor at LITALICO Inc.</description>
+    </item>
+    
+    <item>
+      <title>Portfolio</title>
+      <link>https://retact.github.io/retact/portfolio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://retact.github.io/retact/portfolio/</guid>
+      <description>チーム開発制作物(抜粋)  - 除菌ロボット ソフトウェア，電装
+- 筋電義手-ジェスチャー分類 研究，ソフトウェア
+- 八咫烏-国際大会CANSAT PM，ソフトウェア
+ スキル  言語 C ★★★☆
+C++ ★★☆☆
+Python ★★☆☆
+Java ★☆☆☆
+Javascript ★☆☆☆
+HTML/CSS ★☆☆☆
+機械設計 Solid works ★★☆☆
+電装設計 Eagle ★☆☆☆
+その他 GitHub-(チーム開発できる)
+Vim-(好き)
+Unity-(メンター経験,VRchatなど)
+Mbed compiler-(3年間使用)
+Linux-(Ubuntu, RaspberrypiOS)
+Mac OS-(4年間使用)
+英会話-(日常会話レベル)</description>
     </item>
     
   </channel>
