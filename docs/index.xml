@@ -152,7 +152,7 @@ import numpy as np import myplotlib.pyplot as plt #　Standardization dev1_emg1=
 [ソフトウェア，電装]
 - 筋電義手-ジェスチャー分類 腕の筋電図から深層学習モデルを用いた分類器によって，52動作のジェスチャー分類と制御を可能にした義手の研究です.
 [研究，ソフトウェア]
-- 八咫烏-国際大会CANSAT 2018 Cansat European Competitionにて製作した小型模擬人工衛星「八咫烏(Yatagarasu)」です．
+- 八咫烏-国際大会CANSAT 2018 Cansat European Competitionにて製作した遭難者を捜索する小型模擬人工衛星「八咫烏(Yatagarasu)」です．
 [PM，ソフトウェア]
  スキル  言語 C ★★★☆
 C++ ★★☆☆

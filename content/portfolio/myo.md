@@ -2,6 +2,7 @@
 title: "筋電義手"
 date: 2022-07-20T01:28:40+09:00
 draft: false
+eyecatch: 'img/myo/Picture1.png'
 ---
 {{< youtube xli2Wd_343k >}}
   
